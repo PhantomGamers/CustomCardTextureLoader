@@ -1,0 +1,11 @@
+{
+  "id": "CustomCardTextureLoader",
+  "name": "CustomCardTextureLoader",
+  "author": "PhantomGamers",
+  "description": "Load custom card textures",
+  "version": "v1.0.0",
+  "has_pck": false,
+  "has_dll": true,
+  "dependencies": [],
+  "affects_gameplay": false
+}
