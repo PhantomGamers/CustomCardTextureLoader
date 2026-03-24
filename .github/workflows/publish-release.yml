@@ -49,3 +49,12 @@ jobs:
           files: CustomCardTextureLoader.zip
           fail_on_unmatched_files: true
           body: ${{ steps.changelog.outputs.body }}
+
+      - name: Upload to NexusMods
+        uses: Nexus-Mods/upload-action@main
+        with:
+          api_key: ${{ secrets.NEXUSMODS_API_KEY }}
+          file_group_id: ${{ vars.NEXUSMODS_FILE_GROUP_ID }}
+          filename: CustomCardTextureLoader.zip
+          version: ${{ github.ref_name }}
+          file_category: main
