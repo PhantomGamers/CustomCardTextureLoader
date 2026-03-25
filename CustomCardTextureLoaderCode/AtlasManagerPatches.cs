@@ -9,6 +9,9 @@ namespace CustomCardTextureLoader.CustomCardTextureLoaderCode;
 [UsedImplicitly]
 internal class AtlasManagerPatches
 {
+    private static readonly string ExecutableDir = OS.GetExecutablePath().GetBaseDir();
+    private static readonly string ModDir = Path.Combine(ExecutableDir, "mods");
+    
     [HarmonyPatch(nameof(AtlasManager.GetSprite))]
     [UsedImplicitly]
     internal static bool Prefix(string atlasName, string spriteName, ref AtlasTexture __result)
@@ -16,18 +19,17 @@ internal class AtlasManagerPatches
         if (atlasName != "card_atlas") return true;
         var fileName = "CustomCardTextures/" + spriteName + ".png";
         
-        if (File.Exists(fileName))
+        var fileExecPath = Path.Combine(ExecutableDir, fileName);
+        if (File.Exists(fileExecPath))
         {
-            __result = GetAtlasTextureFromFile(fileName);
+            __result = GetAtlasTextureFromFile(fileExecPath);
             return false;
         }
 
-        fileName = "mods/" + fileName;
-
+        fileName = Path.Combine(ModDir, fileName);
         if (!File.Exists(fileName)) return true;
         __result = GetAtlasTextureFromFile(fileName);
         return false;
-
     }
 
     private static AtlasTexture GetAtlasTextureFromFile(string filePath)
