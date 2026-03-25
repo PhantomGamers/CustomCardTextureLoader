@@ -122,6 +122,14 @@
                 Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')"/>
     </Target>
 
+    <Target Name="UpdateJsonVersion" BeforeTargets="BeforeBuild">
+        <Exec Command="git describe --abbrev=0" ConsoleToMSBuild="true">
+            <Output TaskParameter="ConsoleOutput" PropertyName="GitTag" />
+        </Exec>
+        <Exec Command="dotnet tool install -g dotnet-json" />
+        <Exec Command="dotnet json set CustomCardTextureLoader.json version &quot;$(GitTag)&quot;" />
+    </Target>
+
     <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent" Condition="Exists('$(ModsPath)')">
         <Message Text="Copying .dll and manifest to mods folder." Importance="high"/>
         <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
