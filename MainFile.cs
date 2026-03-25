@@ -1,4 +1,6 @@
+using CustomCardTextureLoader.CustomCardTextureLoaderCode;
 using Godot;
+using GodotPlugins.Game;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
 
@@ -17,5 +19,10 @@ public partial class MainFile : Node
     {
         Harmony harmony = new(ModId);
         harmony.PatchAll();
+        
+        Logger.Info("Initialized");
+        var execTexturePath = Path.Combine(AtlasManagerPatches.ExecutableDir, "CustomCardTextures");
+        var modsTexturePath = Path.Combine(AtlasManagerPatches.ModDir, "CustomCardTextures");
+        Logger.Info($"Looking for card textures in {execTexturePath} and {modsTexturePath}");
     }
 }

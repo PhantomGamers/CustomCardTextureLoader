@@ -9,8 +9,8 @@ namespace CustomCardTextureLoader.CustomCardTextureLoaderCode;
 [UsedImplicitly]
 internal class AtlasManagerPatches
 {
-    private static readonly string ExecutableDir = OS.GetExecutablePath().GetBaseDir();
-    private static readonly string ModDir = Path.Combine(ExecutableDir, "mods");
+    internal static readonly string ExecutableDir = OS.GetExecutablePath().GetBaseDir();
+    internal static readonly string ModDir = Path.Combine(ExecutableDir, "mods");
     
     [HarmonyPatch(nameof(AtlasManager.GetSprite))]
     [UsedImplicitly]
