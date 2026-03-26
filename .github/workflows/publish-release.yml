@@ -57,5 +57,6 @@ jobs:
           file_group_id: ${{ vars.NEXUSMODS_FILE_GROUP_ID }}
           filename: CustomCardTextureLoader.zip
           version: ${{ github.ref_name }}
+          display_name: CustomCardTextureLoader
           description: ${{ steps.changelog.outputs.body }}
           file_category: main
