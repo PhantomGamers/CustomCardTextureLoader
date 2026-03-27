@@ -12,24 +12,30 @@ internal class AtlasManagerPatches
     internal static readonly string ExecutableDir = OS.GetExecutablePath().GetBaseDir();
     internal static readonly string ModDir = Path.Combine(ExecutableDir, "mods");
     
+    private const string TexturePath = "CustomCardTextures";
+
+    private static readonly List<string> SearchDirectories =
+    [
+        Path.Combine(ExecutableDir, TexturePath),
+        Path.Combine(ModDir, TexturePath)
+    ];
+    
     [HarmonyPatch(nameof(AtlasManager.GetSprite))]
     [UsedImplicitly]
     internal static bool Prefix(string atlasName, string spriteName, ref AtlasTexture __result)
     {
         if (atlasName != "card_atlas") return true;
-        var fileName = "CustomCardTextures/" + spriteName + ".png";
-        
-        var fileExecPath = Path.Combine(ExecutableDir, fileName);
-        if (File.Exists(fileExecPath))
+        var fileName = spriteName + ".png";
+
+        foreach (var dir in SearchDirectories)
         {
-            __result = GetAtlasTextureFromFile(fileExecPath);
+            fileName = Path.Combine(dir, fileName);
+            if (!File.Exists(fileName)) continue;
+            __result = GetAtlasTextureFromFile(fileName);
             return false;
         }
-
-        fileName = Path.Combine(ModDir, fileName);
-        if (!File.Exists(fileName)) return true;
-        __result = GetAtlasTextureFromFile(fileName);
-        return false;
+        
+        return true;
     }
 
     private static AtlasTexture GetAtlasTextureFromFile(string filePath)
