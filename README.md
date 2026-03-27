@@ -41,7 +41,7 @@ To distribute a pack, ensure the zip file contents look like the following so th
 
  1. Go to your Slay the Spire 2 install folder, this is the folder that contains the game executable as well as the `data_sts2_{platform}` folder.
  2. Create a folder named `mods`
- 3. Download the [latest release](https://github.com/phantomgamers/CustomCardTextureLoader/releases/latest/CustomCardTextureLoader.zip)
+ 3. Download the [latest release](https://github.com/phantomgamers/CustomCardTextureLoader/releases/latest/download/CustomCardTextureLoader.zip)
  4. Extract it to the mods folder so it looks like the following:
  ```
 📂Slay the Spire 2  
