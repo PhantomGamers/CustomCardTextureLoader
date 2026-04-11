@@ -20,8 +20,10 @@ public partial class MainFile : Node
         harmony.PatchAll();
         
         Logger.Info("Initialized");
-        var execTexturePath = Path.Combine(AtlasManagerPatches.ExecutableDir, "CustomCardTextures");
-        var modsTexturePath = Path.Combine(AtlasManagerPatches.ModDir, "CustomCardTextures");
-        Logger.Info($"Looking for card textures in {execTexturePath} and {modsTexturePath}");
+        Logger.Info("Looking for card textures in the following directories:");
+        foreach (var dir in AtlasManagerPatches.SearchDirectories)
+        {
+            Logger.Info(dir);
+        }
     }
 }
