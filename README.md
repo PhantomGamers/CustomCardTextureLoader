@@ -5,7 +5,7 @@ Loads custom card textures in the game Slay the Spire 2
 ## Usage
 
 Put your card textures in `path/to/Slay the Spire 2/CustomCardTextures`.  
-They should be in the format of `CustomCardTextures/{CharacterName}/{CardName}.png` (currently only files ending in .png are supported)  
+They should be in the format of `CustomCardTextures/{CharacterName}/{CardName}.{extension}`
 e.g. `Slay the Spire 2/CustomCardTextures/silent/bouncing_flask.png`  
 
 Valid types for the subfolder name are:  
@@ -13,6 +13,16 @@ Valid types for the subfolder name are:
 Images should ideally be in a 25:19 or 1.3157894737 aspect ratio. e.g. 250x190 for a small image or 1000x760 for a large image, with the full image cards such as the ancient cards being an exception. Those can either go in a class subfolder or the event subfolder, depending on the card, and should be an aspect ratio of roughly 62:87 or 0.7126436782, e.g. 310x435  
 
 Strikes and defends are named strike_character.png and defend_character.png, e.g. ironclad/strike_ironclad.png  
+
+Supported image types:
+
+```
+- .png
+- .jpg
+- .jpeg
+- .webp
+- .bmp
+```
 
 ## Texture Pack Creators
 
