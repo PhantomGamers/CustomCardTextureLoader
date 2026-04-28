@@ -17,7 +17,8 @@ internal class AtlasManagerPatches
     internal static readonly List<string> SearchDirectories =
     [
         Path.Combine(ExecutableDir, TexturePath),
-        Path.Combine(ModDir, TexturePath)
+        Path.Combine(ModDir, TexturePath),
+        Path.Combine(ModDir, "CustomCardTextureLoaderSG", TexturePath, "card_portraits")
     ];
     
     [HarmonyPatch(nameof(AtlasManager.GetSprite))]
