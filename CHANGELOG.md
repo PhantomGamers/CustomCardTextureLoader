@@ -1,5 +1,8 @@
 ## Changelog
 
+1.1.0:
+- Added support for more image types (jpg, webp, bmp)
+
 1.0.2:
 - Added log info to help debug cases where textures aren't loading
 
