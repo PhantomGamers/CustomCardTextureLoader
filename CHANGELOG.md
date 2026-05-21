@@ -1,5 +1,8 @@
 ## Changelog
 
+1.1.1:
+- Updated manifest json to fix error in beta branch
+
 1.1.0:
 - Added support for more image types (jpg, webp, bmp)
 
