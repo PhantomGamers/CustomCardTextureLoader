@@ -12,7 +12,7 @@ internal class AtlasManagerPatches
     private static readonly string ExecutableDir = OS.GetExecutablePath().GetBaseDir();
     private static readonly string ModDir = Path.Join(ExecutableDir, "mods");
     
-    private const string TexturePath = "CustomCardTextures";
+    internal const string TexturePath = "CustomCardTextures";
 
     internal static readonly List<string> SearchDirectories =
     [

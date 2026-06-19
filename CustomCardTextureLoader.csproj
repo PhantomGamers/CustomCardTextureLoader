@@ -75,6 +75,12 @@
             <Private>false</Private>
             <Publicize>True</Publicize> <!--Allows private/protected field references but may cause errors.-->
         </Reference>
+
+        <Reference Include="Steamworks.NET">
+            <HintPath>stripped_libs/Steamworks.NET-stripped.dll</HintPath>
+            <Private>false</Private>
+            <Publicize>false</Publicize>
+        </Reference>
     </ItemGroup>
 
     <ItemGroup>

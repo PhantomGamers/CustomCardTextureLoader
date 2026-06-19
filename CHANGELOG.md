@@ -1,5 +1,8 @@
 ## Changelog
 
+1.2.0:
+- Support loading texture packs from Steam workshop
+
 1.1.1:
 - Updated manifest json to fix error in beta branch
 
