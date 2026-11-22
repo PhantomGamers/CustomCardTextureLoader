@@ -31,7 +31,7 @@ public partial class MainFile : Node
             Logger.Error(e.Message);
         }
         Logger.Info("Looking for card textures in the following directories:");
-        foreach (var dir in AtlasManagerPatches.SearchDirectories)
+        foreach (var dir in MainCode.SearchDirectories)
         {
             Logger.Info(dir);
         }
@@ -48,10 +48,10 @@ public partial class MainFile : Node
 
             if (!SteamUGC.GetItemInstallInfo(publishedFileIdT, out _, out var path, 256, out _))
                 continue;
-            var workshopTexturePath = Path.Combine(path, AtlasManagerPatches.TexturePath);
+            var workshopTexturePath = Path.Combine(path, MainCode.TexturePath);
             if (Directory.Exists(workshopTexturePath))
             {
-                AtlasManagerPatches.SearchDirectories.Add(workshopTexturePath);
+                MainCode.SearchDirectories.Add(workshopTexturePath);
             }
         }
     }

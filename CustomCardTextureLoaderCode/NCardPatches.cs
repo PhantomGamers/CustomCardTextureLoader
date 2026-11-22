@@ -17,11 +17,22 @@ internal class NCardPatches
 
         var path = Path.GetRelativePath("res://images/packed/card_portraits", __instance.Model.PortraitPngPath);
         var fileName = Path.ChangeExtension(path, "");
+
+        if (string.IsNullOrWhiteSpace(fileName)) return;
         
-        foreach (var filePath in AtlasManagerPatches.ImageExtensions.SelectMany(ext => AtlasManagerPatches.SearchDirectories.Select(dir => Path.Combine(dir, fileName + ext)).Where(File.Exists)))
+        foreach (var filePath in MainCode.FindTextureFiles(fileName))
         {
-            var image = Image.LoadFromFile(filePath);
-            texture = ImageTexture.CreateFromImage(image);
+            try
+            {
+                var image = Image.LoadFromFile(filePath);
+                texture = ImageTexture.CreateFromImage(image);
+            }
+            catch
+            {
+                continue;
+            }
+
+            break;
         }
     }
 }
