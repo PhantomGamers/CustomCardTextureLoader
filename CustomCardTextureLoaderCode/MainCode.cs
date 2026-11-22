@@ -2,7 +2,7 @@
 
 namespace CustomCardTextureLoader.CustomCardTextureLoaderCode;
 
-public class MainCode
+public static class MainCode
 {
     private static readonly string ExecutableDir = OS.GetExecutablePath().GetBaseDir();
     private static readonly string ModDir = Path.Join(ExecutableDir, "mods");
@@ -16,7 +16,7 @@ public class MainCode
         Path.Combine(ModDir, "CustomCardTextureLoaderSG", TexturePath, "card_portraits")
     ];
 
-    internal static readonly List<string> ImageExtensions =
+    private static readonly List<string> ImageExtensions =
     [
         "png",
         "jpg",
@@ -27,6 +27,6 @@ public class MainCode
 
     internal static IEnumerable<string> FindTextureFiles(string textureName)
     {
-        return SearchDirectories.SelectMany(directory => ImageExtensions, (directory, extension) => Path.Combine(directory, textureName + "." + extension)).Where(filePath => File.Exists(filePath));
+        return SearchDirectories.SelectMany(directory => ImageExtensions, (directory, extension) => Path.Combine(directory, textureName + "." + extension)).Where(File.Exists);
     }
 }
