@@ -87,6 +87,10 @@
     <ItemGroup>
         <AdditionalFiles Include="Custom_Card_Texture_Loader/localization/**/*.json"/>
         <PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
+        <PackageReference Include="MinVer" Version="8.0.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
