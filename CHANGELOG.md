@@ -1,5 +1,10 @@
 ## Changelog
 
+1.3.0:
+- Fix loading big portraits in 0.113.1 and newer
+- Skip invalid texture files
+- Load priority is now based on texture directory instead of file type
+
 1.2.0:
 - Support loading texture packs from Steam workshop
 
