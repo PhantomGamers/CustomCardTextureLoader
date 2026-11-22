@@ -21,7 +21,7 @@ internal class AtlasManagerPatches
         Path.Combine(ModDir, "CustomCardTextureLoaderSG", TexturePath, "card_portraits")
     ];
 
-    private static readonly List<string> ImageExtensions =
+    internal static readonly List<string> ImageExtensions =
     [
         "png",
         "jpg",

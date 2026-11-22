@@ -3,10 +3,10 @@
   "name": "CustomCardTextureLoader",
   "author": "PhantomGamers",
   "description": "Load custom card textures",
-  "version": "v1.0.0",
+  "version": "v1.3.0",
   "has_pck": false,
   "has_dll": true,
-  "min_game_version": "0.98.0",
+  "min_game_version": "0.113.1",
   "dependencies": [],
   "affects_gameplay": false
 }
