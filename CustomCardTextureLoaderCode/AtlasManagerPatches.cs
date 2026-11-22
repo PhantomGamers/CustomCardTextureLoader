@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Assets;
 
 namespace CustomCardTextureLoader.CustomCardTextureLoaderCode;
 
+[HarmonyPatchCategory("LegacyOnly")]
 [HarmonyPatch(typeof(AtlasManager))]
 [UsedImplicitly]
 internal class AtlasManagerPatches

@@ -1,8 +1,10 @@
 using CustomCardTextureLoader.CustomCardTextureLoaderCode;
 using Godot;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Debug;
 using MegaCrit.Sts2.Core.Modding;
 using Steamworks;
+using Version = System.Version;
 
 namespace CustomCardTextureLoader;
 
@@ -18,7 +20,25 @@ public partial class MainFile : Node
     public static void Initialize()
     {
         Harmony harmony = new(ModId);
-        harmony.PatchAll();
+        
+        var releaseInfo = ReleaseInfoManager.Instance.ReleaseInfo;
+        if (Version.TryParse(releaseInfo?.Version[1..], out var gameVer))
+        {
+            if (gameVer <= Version.Parse("0.111.1"))
+            {
+                Logger.Info("LegacyOnly");
+                harmony.PatchCategory("LegacyOnly");
+            }
+            else
+            {
+                harmony.PatchAll();
+            }
+        }
+        else
+        {
+            Logger.Info("Game version parse failed");
+            harmony.PatchAll();
+        }
         
         Logger.Info("Initialized");
         try

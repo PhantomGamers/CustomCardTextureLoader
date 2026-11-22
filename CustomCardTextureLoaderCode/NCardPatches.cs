@@ -15,12 +15,12 @@ internal class NCardPatches
     {
         if (__instance.Model == null) return;
 
-        var path = Path.GetRelativePath("res://images/packed/card_portraits", __instance.Model.PortraitPngPath);
-        var fileName = Path.ChangeExtension(path, "");
-
-        if (string.IsNullOrWhiteSpace(fileName)) return;
+        var fullPath = Path.GetRelativePath("res://images/packed/card_portraits", __instance.Model.PortraitPngPath);
+        var shortPath = fullPath[..^Path.GetExtension(fullPath).Length];
         
-        foreach (var filePath in MainCode.FindTextureFiles(fileName))
+        if (string.IsNullOrWhiteSpace(shortPath)) return;
+        
+        foreach (var filePath in MainCode.FindTextureFiles(shortPath))
         {
             try
             {
